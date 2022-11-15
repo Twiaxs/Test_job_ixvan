@@ -1,0 +1,7 @@
+{% autoescape off %}  
+Добрый день {{ user }},
+Ваш счет на данный момент: {{ selary }}
+{% for i in info %}
+    {i.amount}
+{% endfor %}
+{% endautoescape %}

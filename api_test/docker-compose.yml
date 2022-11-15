@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  redis:
+    image: redis
+    restart: always
+
+  backend:
+    container_name: "web"
+    restart: always
+    build:
+      context: ''
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  celery:
+    build: 
+      context: ''
+      dockerfile: Dockerfile
+    command: celery -A core worker -l info 
+    depends_on:
+      - db
+      - redis
+
+  celery-beat:
+    build:
+      context: ''
+      dockerfile: Dockerfile
+    command: celery -A core beat -l info 
+    depends_on:
+      - db
+      - redis
+      - celery
+
+volumes:
+  postgres_data:
