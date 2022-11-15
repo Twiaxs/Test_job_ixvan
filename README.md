@@ -15,6 +15,7 @@ Password
 api/accounts/profile/ - Информация об аккаунте(GET)(Bearer Token)
 
 api/accounts/profile/category/add (POST)(Bearer Token)
+
 Параметры:
 name
 
@@ -29,10 +30,10 @@ api/accounts/profile/category/delate/(DEL)(Bearer Token)
 Параметры:
 id
 
-
 api/accounts/profile/transactions/(GET)
 
 api/accounts/profile/transactions/accrual(POST)(ADD)
+
 Параметры:
 amount - cумму
 category - категория(id)
